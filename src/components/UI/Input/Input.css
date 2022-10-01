@@ -1,0 +1,22 @@
+.searchbox-inp {
+  font-size: 1rem;
+
+  padding: 0.3em;
+  width: min(50%, 120vw);
+
+  border: 0;
+  outline: 1px solid black;
+  border-radius: 5px;
+}
+
+.searchbox-inp:focus {
+  outline: 3px solid black;
+}
+
+.input-error {
+  outline: 1px solid red;
+}
+
+.input-error:focus {
+  outline: 2px solid red;
+}

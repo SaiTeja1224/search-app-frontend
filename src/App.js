@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import classes from "./App.module.css";
+
+import Search from "./components/Search/Search";
+import Display from "./components/Display/Display";
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState(false);
+
+  const addToResults = (newData) => {
+    setSearchResults(newData);
+  };
+
+  const errorPresent = (err) => {
+    setError(err);
+  };
+
+  const content = !error ? (
+    <>
+      <section className={classes["search-section"]}>
+        <h1>Search Box</h1>
+        <Search addToResults={addToResults} errorPresent={errorPresent} />
+      </section>
+      <section className={classes["ad-section"]}>
+        {searchResults.length > 0 && <Display searchResults={searchResults} />}
+      </section>
+    </>
+  ) : (
+    <p>Something Went Wrong!</p>
   );
+
+  return <article>{content}</article>;
 }
 
 export default App;
