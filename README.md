@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Search App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project connects to the backend to get relevant ad according to the searched content on every keystroke.
 
 ## Available Scripts
 
